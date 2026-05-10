@@ -1,5 +1,10 @@
 # Inventory Manager
 
+[![CI](https://github.com/MSeyyidDev/inventory-manager/actions/workflows/ci.yml/badge.svg)](https://github.com/MSeyyidDev/inventory-manager/actions/workflows/ci.yml)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/downloads/)
+[![Node 20+](https://img.shields.io/badge/node-20%2B-43853d.svg)](https://nodejs.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 A small but polished fullstack application to manage IT assets, the people who use them and the locations they live in.
 
 Built as a portfolio project to showcase clean, layered backend code (FastAPI + SQLAlchemy 2.0 + Pydantic v2) and a typed, feature-organised frontend (React + TypeScript + Vite + TanStack Query + Tailwind).
