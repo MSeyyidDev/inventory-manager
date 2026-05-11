@@ -9,6 +9,10 @@ A small but polished fullstack application to manage IT assets, the people who u
 
 Built as a portfolio project to showcase clean, layered backend code (FastAPI + SQLAlchemy 2.0 + Pydantic v2) and a typed, feature-organised frontend (React + TypeScript + Vite + TanStack Query + Tailwind).
 
+**Deploy-ready demo:** backend can be deployed with `render.yaml`; frontend can
+be deployed from `frontend/` to Vercel/Netlify with `VITE_API_URL` pointing to
+the hosted API. The Render start command seeds demo data before booting Uvicorn.
+
 ---
 
 ## Features
@@ -60,7 +64,7 @@ Frontend uses a feature-based layout (`src/features/devices`, `…/employees`, `
 
 ## Tech stack
 
-**Backend** – Python 3.13, FastAPI, SQLAlchemy 2.0, Pydantic v2 + pydantic-settings, SQLite, Faker, pytest, httpx.
+**Backend** – Python 3.11+, FastAPI, SQLAlchemy 2.0, Pydantic v2 + pydantic-settings, SQLite, Faker, pytest, httpx.
 
 **Frontend** – React 18, TypeScript, Vite 5, Tailwind CSS, TanStack Query 5, Axios, React Router 6, Zod, Recharts, Vitest + React Testing Library.
 
@@ -68,14 +72,15 @@ Frontend uses a feature-based layout (`src/features/devices`, `…/employees`, `
 
 ## Screenshots
 
-> `docs/screenshots/dashboard.png` · `docs/screenshots/devices.png` · `docs/screenshots/device-detail.png`
-> _(placeholders – the UI runs locally on `http://localhost:5173`)_
+Capture these after starting the local demo or deploying the hosted version:
+`docs/screenshots/dashboard.png`, `docs/screenshots/devices.png`, and
+`docs/screenshots/device-detail.png`.
 
 ---
 
 ## Setup
 
-Prerequisites: Python 3.13, Node.js 20+ and `npm`.
+Prerequisites: Python 3.11+, Node.js 20+ and `npm`.
 
 ### Backend
 
@@ -105,6 +110,25 @@ make dev-backend    # FastAPI on :8000
 make dev-frontend   # Vite on :5173
 make test           # all tests
 ```
+
+### Hosted demo deployment
+
+Backend:
+
+```bash
+# Render Blueprint uses render.yaml
+python -m app.seed
+uvicorn app.main:app --host 0.0.0.0 --port 8000
+```
+
+Frontend:
+
+```bash
+cd frontend
+VITE_API_URL=https://your-render-service.onrender.com npm run build
+```
+
+Set `CORS_ORIGINS` on the backend to the deployed frontend origin.
 
 ---
 
